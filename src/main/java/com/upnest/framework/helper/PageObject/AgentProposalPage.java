@@ -10,6 +10,7 @@ import org.openqa.selenium.support.How;
 import com.upnest.framework.helper.BasePageObject.PageBase;
 import com.upnest.framework.helper.DropDown.DropDownHelper;
 import com.upnest.framework.helper.Logger.LoggerHelper;
+import com.upnest.framework.helper.Navigation.NavigationHelper;
 import com.upnest.framework.helper.TextBox.TextBoxHelper;
 import com.upnest.framework.settings.ObjectRepo;
 
@@ -31,6 +32,9 @@ public class AgentProposalPage extends PageBase {
 	@FindBy(how=How.ID,using="email")
 	public WebElement email_address_txtbox;
 	
+	@FindBy(how=How.ID,using="phone")
+	public WebElement phone_txtbox;
+	
 	@FindBy(how=How.NAME,using="talkNow")
 	public WebElement talknow_checkbox;
 		
@@ -46,5 +50,18 @@ public class AgentProposalPage extends PageBase {
 		return this.driver;
 	}
 	
+	public String getAgentProposalPageTitle(){
+		return new NavigationHelper(driver).getTitle();
+	}
 	
+	public void enter_agent_proposal(String FullName,String Email,String Number) {		
+		full_name_txtbox.sendKeys(FullName);
+		email_address_txtbox.sendKeys(Email);
+		talknow_checkbox.click();
+		log.info(FullName);
+		log.info(Email);
+		waitForElement(phone_txtbox, ObjectRepo.reader.getExplicitWait());
+		email_address_txtbox.sendKeys(Number);
+		continue_btn.click();
+	}
 }

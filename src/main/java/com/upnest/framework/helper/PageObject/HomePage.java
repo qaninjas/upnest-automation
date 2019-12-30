@@ -10,6 +10,7 @@ import org.openqa.selenium.support.How;
 import com.upnest.framework.helper.BasePageObject.PageBase;
 import com.upnest.framework.helper.DropDown.DropDownHelper;
 import com.upnest.framework.helper.Logger.LoggerHelper;
+import com.upnest.framework.helper.Navigation.NavigationHelper;
 import com.upnest.framework.helper.TextBox.TextBoxHelper;
 import com.upnest.framework.settings.ObjectRepo;
 
@@ -25,10 +26,10 @@ public class HomePage extends PageBase {
 	
 	/** Web Elements */
 	@FindBy(how=How.ID,using="buysellHeroFormLocation")
-	public WebElement compate_agent_txtbox;
+	public WebElement compare_agent_txtbox;
 	
 	@FindBy(how=How.XPATH,using="//input[@type='submit'][@value='Compare Agents'])[1]")
-	public WebElement compate_agent_btn;
+	public WebElement compare_agent_btn;
 		
 	
 	/** Default Methods **/
@@ -39,5 +40,14 @@ public class HomePage extends PageBase {
 		return this.driver;
 	}
 	
+	public String getHomePageTitle(){
+		return new NavigationHelper(driver).getTitle();
+	}
 	
+	public void search_agent(String searchAgentStr) {		
+		compare_agent_txtbox.clear();
+		compare_agent_txtbox.sendKeys(searchAgentStr);
+		compare_agent_btn.click();
+		log.info(searchAgentStr);
+	}
 }

@@ -8,8 +8,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import com.upnest.framework.helper.BasePageObject.PageBase;
+import com.upnest.framework.helper.Button.ButtonHelper;
 import com.upnest.framework.helper.DropDown.DropDownHelper;
 import com.upnest.framework.helper.Logger.LoggerHelper;
+import com.upnest.framework.helper.Navigation.NavigationHelper;
 import com.upnest.framework.helper.TextBox.TextBoxHelper;
 import com.upnest.framework.settings.ObjectRepo;
 
@@ -40,5 +42,15 @@ public class FaqPage extends PageBase {
 		return this.driver;
 	}
 	
+	public String getFAQPageTitle(){
+		return new NavigationHelper(driver).getTitle();
+	}
 	
+	public void clickYesButton(){
+		new ButtonHelper(driver).click(yes_btn);
+	}
+	
+	public void clickSkipButton(){
+		new ButtonHelper(driver).click(skip_btn);
+	}
 }
