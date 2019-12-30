@@ -2,8 +2,8 @@ Feature: Compare Agents of the web page
 
   Scenario: Compare agent for buy option
   
-		Given user open the URL https://www.upnest.com/
-   	When user enter location "california, MD, USA"
+		Given user open the URL "https://www.upnest.com/"
+   	When user enter the location "california, MD, USA"
 		When user click on "Compare Agents" button
 		And user select "BUY" option
 		And user select "$260K - $390K" option
@@ -13,7 +13,7 @@ Feature: Compare Agents of the web page
 		
 		When user enter Full Name "Kalpesh Tank"
 		When user enter valid email address "kalpesh@dayrep.com"
-		Then user validates as email address "kalpesh@dayrep.com"
+		Then user validates email address "kalpesh@dayrep.com"
 		When user enter USA phone number "xxxxxxxxxx"
 		Then user validates USA phone number "xxxxxxxxxx"
 		
@@ -23,6 +23,9 @@ Feature: Compare Agents of the web page
 		And user click on "Skip" button
 		And user click on "Skip" button
 		And user click on "Skip" button
+		And user click on "Skip" button
+	  And user click on "Skip" button
+		
 		Then user validates first agent record "Sample Proposal"
 		Then user confirm Phone Number
 		Then user confirm Email Address

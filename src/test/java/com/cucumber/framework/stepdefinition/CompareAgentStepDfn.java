@@ -6,13 +6,13 @@ import cucumber.api.java.en.When;
 
 public class CompareAgentStepDfn {
 	
-	@Given("^user open the URL (*.)$")
+	@Given("^user open the URL \"([^\\\"]*)\"$")
 	public void user_open_the_URL() throws Throwable {
  
 	   
 	}
 
-	@When("^user enter the location i\\.e\\. california, MD, USA$")
+	@When("^user enter the location \"([^\\\"]*)\"$")
 	public void user_enter_the_location() throws Throwable {
 	     
 	   
@@ -42,7 +42,7 @@ public class CompareAgentStepDfn {
 	   
 	}
 
-	@Then("^user validates (*.) as \"([^\"]*)\"$")
+	@Then("^user validates email address \"([^\"]*)\"$")
 	public void user_validates_email(String arg1,String arg2) throws Throwable {
 	     
 	   
