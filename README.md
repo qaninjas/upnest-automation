@@ -56,9 +56,8 @@ use the tag `@chrome` to launch the specific browser or no-tag to use the browse
 
 ```java
 /**
- * @author rahul.rathore
+ * @author krana
  *	
- *	14-Aug-2016
  */
 package com.cucumber.framework.runner;
 
