@@ -45,6 +45,7 @@ public class HomeSelectionPage extends PageBase {
 	}
 	
 	public void clickFamilyOptionButton(){
+		waitForElement(home_type_btn, ObjectRepo.reader.getExplicitWait());
 		new ButtonHelper(driver).click(home_type_btn);
 	}
 	

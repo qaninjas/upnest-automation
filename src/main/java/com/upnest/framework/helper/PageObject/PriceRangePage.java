@@ -26,8 +26,7 @@ public class PriceRangePage extends PageBase {
 	}
 	
 	/** Web Elements */
-	
-	@FindBy(how=How.XPATH,using="//*[@id=\"price-ranges-div\"]/div[3]")
+	@FindBy(how=How.XPATH,using="//*[@id='price-ranges-div']/div[3]")
 	public WebElement price_range_btn;
 		
 	
@@ -45,6 +44,7 @@ public class PriceRangePage extends PageBase {
 	}
 	
 	public void clickPriceRangeButton(){
+		waitForElement(price_range_btn, ObjectRepo.reader.getExplicitWait());
 		new ButtonHelper(driver).click(price_range_btn);
 	}
 }

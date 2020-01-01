@@ -45,6 +45,7 @@ public class BuyProcessPage extends PageBase {
 	}
 	
 	public void clickBidButton(){
+		waitForElement(ready_to_bid_btn, ObjectRepo.reader.getExplicitWait());
 		new ButtonHelper(driver).click(ready_to_bid_btn);
 	}
 	

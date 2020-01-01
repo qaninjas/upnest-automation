@@ -45,6 +45,7 @@ public class FindAgentPage extends PageBase {
 	}
 	
 	public void clickBuyButton(){
+		waitForElement(buy_btn, ObjectRepo.reader.getExplicitWait());
 		new ButtonHelper(driver).click(buy_btn);
 	}
 	

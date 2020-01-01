@@ -45,6 +45,7 @@ public class LoanApprovalPage extends PageBase {
 	}
 	
 	public void clickYesButton(){
+		waitForElement(yes_btn, ObjectRepo.reader.getExplicitWait());
 		new ButtonHelper(driver).click(yes_btn);
 	}
 	

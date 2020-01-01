@@ -29,7 +29,7 @@ public class HomePage extends PageBase {
 	@FindBy(how=How.ID,using="buysellHeroFormLocation")
 	public WebElement compare_agent_txtbox;
 	
-	@FindBy(how=How.XPATH,using="//input[@type='submit'][@value='Compare Agents'])[1]")
+	@FindBy(how=How.XPATH,using="//input[@type='submit'][@value='Compare Agents']")
 	public WebElement compare_agent_btn;
 		
 	

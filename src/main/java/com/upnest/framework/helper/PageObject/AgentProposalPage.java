@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import com.upnest.framework.helper.BasePageObject.PageBase;
+import com.upnest.framework.helper.Button.ButtonHelper;
 import com.upnest.framework.helper.DropDown.DropDownHelper;
 import com.upnest.framework.helper.Logger.LoggerHelper;
 import com.upnest.framework.helper.Navigation.NavigationHelper;
@@ -38,7 +39,7 @@ public class AgentProposalPage extends PageBase {
 	@FindBy(how=How.NAME,using="talkNow")
 	public WebElement talknow_checkbox;
 		
-	@FindBy(how=How.CSS,using="button[class=\"continue-button\"]")
+	@FindBy(how=How.CSS,using="button[class='continue-button']")
 	public WebElement continue_btn;
 	
 	/** Default Methods **/
@@ -52,6 +53,33 @@ public class AgentProposalPage extends PageBase {
 	
 	public String getAgentProposalPageTitle(){
 		return new NavigationHelper(driver).getTitle();
+	}
+	
+	public void setname(String strname) {
+		full_name_txtbox.click();
+		full_name_txtbox.sendKeys(strname);
+		log.info(strname);
+	}
+
+	public void setemail(String stremail) {
+		email_address_txtbox.click();
+		email_address_txtbox.sendKeys(stremail);
+		log.info(stremail);
+	}
+
+	
+	public void setphonenumber(String strnumber) {
+		phone_txtbox.click();
+		phone_txtbox.sendKeys(strnumber);
+		log.info(strnumber);
+	}
+
+	public void setcheckbox() {
+		new ButtonHelper(driver).click(talknow_checkbox);		
+	}
+
+	public void clickContinue() {
+		new ButtonHelper(driver).click(continue_btn);		
 	}
 	
 	public void enter_agent_proposal(String FullName,String Email,String Number) {		

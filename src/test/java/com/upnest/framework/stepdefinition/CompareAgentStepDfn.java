@@ -2,15 +2,28 @@ package com.upnest.framework.stepdefinition;
 
 import org.testng.Assert;
 
+import com.upnest.framework.helper.PageObject.AgentProposalPage;
+import com.upnest.framework.helper.PageObject.BuyProcessPage;
+import com.upnest.framework.helper.PageObject.FindAgentPage;
 import com.upnest.framework.helper.PageObject.HomePage;
+import com.upnest.framework.helper.PageObject.HomeSelectionPage;
+import com.upnest.framework.helper.PageObject.LoanApprovalPage;
+import com.upnest.framework.helper.PageObject.PriceRangePage;
 import com.upnest.framework.settings.ObjectRepo;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CompareAgentStepDfn {
 	HomePage hPage;
+	FindAgentPage faPage;
+	PriceRangePage prPage;
+	HomeSelectionPage hsPage;
+	BuyProcessPage bpPage;
+	LoanApprovalPage laPage;
+	AgentProposalPage apPage;
 
 	@Given("^user at the home page$")
 	public void user_open_the_URL() throws Throwable {
@@ -25,107 +38,125 @@ public class CompareAgentStepDfn {
 		hPage.search_agent(searchAgent);	   
 	}
 
-	@When("^user click on \"([^\"]*)\" option$")
-	public void user_click_on_option(String button) throws Throwable {
-		if(button.equalsIgnoreCase("Compare Agents") )
+	@And("^user select \"([^\"]*)\" option$")
+	public void user_select_option(String option_btn) throws Throwable {
+		if(option_btn.equalsIgnoreCase("BUY"))
 		{
-			hPage.clickCompareButton();
+			faPage = new FindAgentPage(ObjectRepo.driver);
+			String fatitle = faPage.getFindAgentPageTitle();
+			Assert.assertEquals(ObjectRepo.reader.getFindAgentTitle(),fatitle);
+			faPage.clickBuyButton();
 		}
-		else if(button.equalsIgnoreCase(""))
+		if(option_btn.equalsIgnoreCase("$260K - $390K"))
 		{
-			
+			prPage = new PriceRangePage(ObjectRepo.driver);
+			prPage.clickPriceRangeButton();
 		}
-	   
-	}
-
-	@When("^user select \"([^\"]*)\" option$")
-	public void user_select_option(String arg1) throws Throwable {
-	     
-	   
+		else if(option_btn.equalsIgnoreCase("Single Family"))
+		{
+			hsPage = new HomeSelectionPage(ObjectRepo.driver);
+			hsPage.clickFamilyOptionButton();
+		}
+		else if(option_btn.equalsIgnoreCase("Ready to Bid"))
+		{
+			bpPage = new BuyProcessPage(ObjectRepo.driver);
+			bpPage.clickBidButton();
+		}
+		else if(option_btn.equalsIgnoreCase("Yes"))
+		{
+			laPage = new LoanApprovalPage(ObjectRepo.driver);
+			laPage.clickYesButton();
+		}
 	}
 
 	@When("^user enter Full Name \"([^\"]*)\"$")
-	public void user_enter_Full_Name(String arg2,String arg1) throws Throwable {
-	     
-	   
+	public void user_enter_Full_Name(String fname) throws Throwable {
+		apPage.setname(fname);
 	}
 
 	@When("^user enter valid email address \"([^\"]*)\"$")
-	public void user_enter_valid_email(String arg1) throws Throwable {
-	     
-	   
+	public void user_enter_valid_email(String email) throws Throwable {
+		apPage.setemail(email);
+
 	}
 
 	@Then("^user validates email address \"([^\"]*)\"$")
 	public void user_validates_email(String arg1,String arg2) throws Throwable {
-	     
-	   
+
+
 	}
 
 	@When("^user enter USA phone number \"([^\"]*)\"$")
-	public void user_enter_phone_no(String arg1) throws Throwable {
-	     
-	   
+	public void user_enter_phone_no(String phno) throws Throwable {
+		apPage.setphonenumber(phno);
 	}
 
 	@Then("^user validates USA phone number \"([^\"]*)\"$")
 	public void user_validates_phone_no(String arg1) throws Throwable {
-	     
-	   
+
+
 	}
 
 	@When("^user select the checkbox \"([^\"]*)\"  option$")
-	public void user_select_checkbox_option(String arg1) throws Throwable {
-	     
-	   
+	public void user_select_checkbox_option(String check_option) throws Throwable {
+		if(check_option.contains("I want"))
+		{
+			apPage.setcheckbox();
+		}
+
 	}
 
 	@When("^user click on \"([^\"]*)\" button$")
-	public void user_click_on_button(String arg1) throws Throwable {
-	     
-	   
+	public void user_click_on_button(String button) throws Throwable {
+		if(button.equalsIgnoreCase("Compare Agents"))
+		{
+			hPage.clickCompareButton();
+		}
+		else if(button.equalsIgnoreCase("Continue"))
+		{
+			apPage.clickContinue();
+		}
 	}
 
 	@When("^user click on \"([^\"]*)\" in chat screen$")
-	public void user_click_on_chat(String arg1) throws Throwable {
-	     
-	   
+	public void user_click_on_chat(String button) throws Throwable {
+
 	}
 
 	@Then("^user validates first agent record \"([^\"]*)\"$")
 	public void user_validates_agent_record(String arg1) throws Throwable {
-	     
-	   
+
+
 	}
 
 	@Then("^user confirm Phone Number$")
 	public void user_confirm_phone_no() throws Throwable {
-	     
-	   
+
+
 	}
 
 	@Then("^user confirm Email Address$")
 	public void user_confirm_email() throws Throwable {
-	     
-	   
+
+
 	}
 
 	@When("^user click on agent name \"([^\"]*)\"$")
 	public void user_click_on_agent_name(String arg1) throws Throwable {
-	     
-	   
+
+
 	}
 
 	@Then("^user validates agent details$")
 	public void user_validates_agent_details() throws Throwable {
-	     
-	   
+
+
 	}
 
 	@Then("^user Logout from the account$")
 	public void user_Logout_from_the_account() throws Throwable {
-	     
-	   
+
+
 	}
 
 }
