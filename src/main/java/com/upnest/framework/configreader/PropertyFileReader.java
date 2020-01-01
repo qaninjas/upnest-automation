@@ -66,6 +66,46 @@ public class PropertyFileReader implements IconfigReader {
 	public String getDbType() {
 		return prop.getProperty("DataBase.Type");
 	}
+	
+	public String getHomePageTitle() {
+		return prop.getProperty("HomePageTitle");
+	}
+	
+	 
+	public String getFindAgentTitle() {		 
+		return prop.getProperty("FindAgentTitle");
+	}
+
+	 
+	public String getHomeSelectionTitle() {
+		return prop.getProperty("HomeSelectionTitle");
+	}
+
+	 
+	public String getFaqPageTitle() {
+		return prop.getProperty("FaqPageTitle");
+	}
+
+	 
+	public String getAgentProposalTitle() {
+		return prop.getProperty("AgentProposalTitle");
+	}
+
+ 
+	public String getBuyProcessTitle() {
+		return prop.getProperty("BuyProcessTitle");
+	}
+
+	 
+	public String getLoanApprovalTitle() {
+		return prop.getProperty("LoanApprovalTitle");
+	}
+
+	 
+	public String getPriceRangeTitle() {
+		return prop.getProperty("PriceRangeTitle");
+	}
+	
 
 	public String getDbConnStr() {
 		return prop.getProperty("DtaBase.ConnectionStr");

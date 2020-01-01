@@ -1,26 +1,40 @@
-package com.cucumber.framework.stepdefinition;
+package com.upnest.framework.stepdefinition;
+
+import org.testng.Assert;
+
+import com.upnest.framework.helper.PageObject.HomePage;
+import com.upnest.framework.settings.ObjectRepo;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CompareAgentStepDfn {
-	
-	@Given("^user open the URL \"([^\\\"]*)\"$")
+	HomePage hPage;
+
+	@Given("^user at the home page$")
 	public void user_open_the_URL() throws Throwable {
- 
-	   
+		ObjectRepo.driver.get(ObjectRepo.reader.getWebsite());
+		hPage = new HomePage(ObjectRepo.driver);
+		String htitle = hPage.getHomePageTitle();
+		Assert.assertEquals(ObjectRepo.reader.getHomePageTitle(), htitle);
 	}
 
 	@When("^user enter the location \"([^\\\"]*)\"$")
-	public void user_enter_the_location() throws Throwable {
-	     
-	   
+	public void user_enter_the_location(String searchAgent) throws Throwable {
+		hPage.search_agent(searchAgent);	   
 	}
 
 	@When("^user click on \"([^\"]*)\" option$")
-	public void user_click_on_option(String arg1) throws Throwable {
-	     
+	public void user_click_on_option(String button) throws Throwable {
+		if(button.equalsIgnoreCase("Compare Agents") )
+		{
+			hPage.clickCompareButton();
+		}
+		else if(button.equalsIgnoreCase(""))
+		{
+			
+		}
 	   
 	}
 

@@ -1,8 +1,9 @@
 Feature: Compare Agents of the web page
 
+  @chrome
   Scenario: Compare agent for buy option
   
-		Given user open the URL "https://www.upnest.com/"
+		Given user at the home page
    	When user enter the location "california, MD, USA"
 		And user click on "Compare Agents" button
 		
@@ -25,6 +26,7 @@ Feature: Compare Agents of the web page
 		And user click on "Skip" button
 		And user click on "Skip" button
 
+		
 		Then user validates first agent record "Sample Proposal"
 		Then user confirm Phone Number
 		Then user confirm Email Address

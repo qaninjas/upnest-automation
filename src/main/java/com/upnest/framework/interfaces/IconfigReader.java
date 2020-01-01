@@ -15,4 +15,12 @@ public interface IconfigReader {
 	public int getImplicitWait();
 	public int getExplicitWait();
 	public BrowserType getBrowser();
+	public String getHomePageTitle();
+	public String getFindAgentTitle();
+	public String getHomeSelectionTitle();
+	public String getFaqPageTitle();
+	public String getAgentProposalTitle();
+	public String getBuyProcessTitle();
+	public String getLoanApprovalTitle();
+	public String getPriceRangeTitle();
 }
