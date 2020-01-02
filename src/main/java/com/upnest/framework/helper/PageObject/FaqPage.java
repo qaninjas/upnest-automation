@@ -10,6 +10,7 @@ import org.openqa.selenium.support.How;
 import com.upnest.framework.helper.BasePageObject.PageBase;
 import com.upnest.framework.helper.Button.ButtonHelper;
 import com.upnest.framework.helper.DropDown.DropDownHelper;
+import com.upnest.framework.helper.Javascript.JavaScriptHelper;
 import com.upnest.framework.helper.Logger.LoggerHelper;
 import com.upnest.framework.helper.Navigation.NavigationHelper;
 import com.upnest.framework.helper.TextBox.TextBoxHelper;
@@ -47,7 +48,8 @@ public class FaqPage extends PageBase {
 	}
 	
 	public void clickYesButton(){
-		new ButtonHelper(driver).click(yes_btn);
+		waitForElement(yes_btn, ObjectRepo.reader.getExplicitWait());
+		new JavaScriptHelper(driver).clickUsingJS(yes_btn);
 	}
 	
 	public void clickSkipButton(){

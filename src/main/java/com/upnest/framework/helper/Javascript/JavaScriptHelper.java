@@ -83,4 +83,10 @@ public class JavaScriptHelper implements IwebComponent {
 		element.click();
 		oLog.info(element);
 	}
+	
+	public void clickUsingJS(WebElement element) {
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", element);
+		oLog.info(element);
+	}
 }

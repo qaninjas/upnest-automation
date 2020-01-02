@@ -46,6 +46,5 @@ public class NavigationHelper implements IwebComponent {
 		oLog.info(url);
 		return driver.getCurrentUrl();
 	}
-	
 
 }

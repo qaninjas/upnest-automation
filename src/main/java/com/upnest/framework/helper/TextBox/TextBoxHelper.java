@@ -47,5 +47,10 @@ public class TextBoxHelper extends GenericHelper {
 		element.sendKeys(value);
 		oLog.info("Locator : " + locator + " Value : " + value);
 	}
+	
+	public String getText(WebElement element) {
+		oLog.info("Locator : " + element);
+		return element.getText();
+	}
 
 }

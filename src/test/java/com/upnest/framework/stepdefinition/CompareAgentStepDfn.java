@@ -77,14 +77,14 @@ public class CompareAgentStepDfn {
 		apPage.setname(fname);
 	}
 
-	@When("^user enter valid email address \"([^\"]*)\"$")
-	public void user_enter_valid_email(String email) throws Throwable {
+	@When("^user enter valid email address$")
+	public void user_enter_valid_email() throws Throwable {
 		apPage = new AgentProposalPage(ObjectRepo.driver);
-		apPage.setemail(email);
+		apPage.setemail();
 	}
 
-	@Then("^user validates email address \"([^\"]*)\"$")
-	public void user_validates_email(String arg1,String arg2) throws Throwable {
+	@Then("^user validates email address$")
+	public void user_validates_email(String arg1) throws Throwable {
 
 
 	}
@@ -127,10 +127,15 @@ public class CompareAgentStepDfn {
 			fqPage = new FaqPage(ObjectRepo.driver);
 			fqPage.clickSkipButton();
 		}
+		else if(button.equalsIgnoreCase("logout"))
+		{
+			fqPage = new FaqPage(ObjectRepo.driver);
+			fqPage.clickSkipButton();
+		}
 	}
 
 	@When("^user click on \"([^\"]*)\" in chat screen$")
-	public void user_click_on_chat(String button) throws Throwable {
+	public void user_click_on_chat() throws Throwable {
 		fqPage = new FaqPage(ObjectRepo.driver);
 		fqPage.clickYesButton();
 	}

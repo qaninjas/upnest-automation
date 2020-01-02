@@ -61,10 +61,12 @@ public class AgentProposalPage extends PageBase {
 		log.info(strname);
 	}
 
-	public void setemail(String stremail) {
+	public void setemail() {
+		String userName = ""+(int)(Math.random()*Integer.MAX_VALUE);
+		String emailID = "auto"+userName+"@dayrep.com";
 		email_address_txtbox.click();
-		email_address_txtbox.sendKeys(stremail);
-		log.info(stremail);
+		email_address_txtbox.sendKeys(emailID);
+		log.info(emailID);
 	}
 
 	

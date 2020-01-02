@@ -14,7 +14,7 @@ Feature: Compare Agents of the web page
 		And user select "Yes" option
 		
 		When user enter Full Name "Kalpesh Tank"
-		When user enter valid email address "auto_kalpesh@dayrep.com"
+		When user enter valid email address
 		When user enter USA phone number "(800) 477-1477"
 		When user select the checkbox "I want agents to ...."  option
 		And user click on "Continue" button
@@ -30,4 +30,4 @@ Feature: Compare Agents of the web page
 #		Then user validates USA phone number "(800) 477-1477"
 #		And user click on agent name "john Smith"
 #		Then user validates agent details
-#		And user click on "logout" button
+		And user click on "logout" button
