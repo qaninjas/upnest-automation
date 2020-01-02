@@ -23,8 +23,7 @@ Feature: Compare Agents of the web page
 		And user click on "Skip" button
 		And user click on "Skip" button
 		And user click on "Skip" button
-#
-#		
+	
 #		Then user validates first agent record "Sample Proposal"
 #		Then user validates email address "auto_kalpesh@dayrep.com"
 #		Then user validates USA phone number "(800) 477-1477"

@@ -49,7 +49,7 @@ public class FaqPage extends PageBase {
 	
 	public void clickYesButton(){
 		waitForElement(yes_btn, ObjectRepo.reader.getExplicitWait());
-		new JavaScriptHelper(driver).clickUsingJS(yes_btn);
+		new ButtonHelper(driver).click(yes_btn);
 	}
 	
 	public void clickSkipButton(){
