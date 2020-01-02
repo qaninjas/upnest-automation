@@ -129,6 +129,12 @@ public class CompareAgentStepDfn {
 		}
 	}
 
+	@When("^user click on \"([^\"]*)\" in chat screen$")
+	public void user_click_on_chat(String button) throws Throwable {
+		fqPage = new FaqPage(ObjectRepo.driver);
+		fqPage.clickYesButton();
+	}
+
 	@Then("^user validates first agent record \"([^\"]*)\"$")
 	public void user_validates_agent_record(String arg1) throws Throwable {
 
