@@ -69,6 +69,7 @@ public class AgentProposalPage extends PageBase {
 
 	
 	public void setphonenumber(String strnumber) {
+		waitForElement(phone_txtbox, ObjectRepo.reader.getExplicitWait());
 		phone_txtbox.click();
 		phone_txtbox.sendKeys(strnumber);
 		log.info(strnumber);

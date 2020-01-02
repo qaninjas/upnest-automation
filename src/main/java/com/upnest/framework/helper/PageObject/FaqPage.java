@@ -27,10 +27,10 @@ public class FaqPage extends PageBase {
 	
 	/** Web Elements */
 		
-	@FindBy(how=How.CSS,using="div[class=\"chat-reply-button\"]")
+	@FindBy(how=How.CSS,using="div[class='chat-reply-button']")
 	public WebElement yes_btn;
 	
-	@FindBy(how=How.CSS,using="div[class=\"skip-dt\"]")
+	@FindBy(how=How.CSS,using="div[class='skip-dt']")
 	public WebElement skip_btn;
 	
 	/** Default Methods **/

@@ -4,6 +4,7 @@ import org.testng.Assert;
 
 import com.upnest.framework.helper.PageObject.AgentProposalPage;
 import com.upnest.framework.helper.PageObject.BuyProcessPage;
+import com.upnest.framework.helper.PageObject.FaqPage;
 import com.upnest.framework.helper.PageObject.FindAgentPage;
 import com.upnest.framework.helper.PageObject.HomePage;
 import com.upnest.framework.helper.PageObject.HomeSelectionPage;
@@ -24,6 +25,7 @@ public class CompareAgentStepDfn {
 	BuyProcessPage bpPage;
 	LoanApprovalPage laPage;
 	AgentProposalPage apPage;
+	FaqPage fqPage;
 
 	@Given("^user at the home page$")
 	public void user_open_the_URL() throws Throwable {
@@ -71,13 +73,14 @@ public class CompareAgentStepDfn {
 
 	@When("^user enter Full Name \"([^\"]*)\"$")
 	public void user_enter_Full_Name(String fname) throws Throwable {
+		apPage = new AgentProposalPage(ObjectRepo.driver);
 		apPage.setname(fname);
 	}
 
 	@When("^user enter valid email address \"([^\"]*)\"$")
 	public void user_enter_valid_email(String email) throws Throwable {
+		apPage = new AgentProposalPage(ObjectRepo.driver);
 		apPage.setemail(email);
-
 	}
 
 	@Then("^user validates email address \"([^\"]*)\"$")
@@ -88,6 +91,7 @@ public class CompareAgentStepDfn {
 
 	@When("^user enter USA phone number \"([^\"]*)\"$")
 	public void user_enter_phone_no(String phno) throws Throwable {
+		apPage = new AgentProposalPage(ObjectRepo.driver);
 		apPage.setphonenumber(phno);
 	}
 
@@ -101,26 +105,28 @@ public class CompareAgentStepDfn {
 	public void user_select_checkbox_option(String check_option) throws Throwable {
 		if(check_option.contains("I want"))
 		{
+			apPage = new AgentProposalPage(ObjectRepo.driver);
 			apPage.setcheckbox();
 		}
-
 	}
 
 	@When("^user click on \"([^\"]*)\" button$")
 	public void user_click_on_button(String button) throws Throwable {
 		if(button.equalsIgnoreCase("Compare Agents"))
 		{
+			hPage = new HomePage(ObjectRepo.driver);
 			hPage.clickCompareButton();
 		}
 		else if(button.equalsIgnoreCase("Continue"))
 		{
+			apPage = new AgentProposalPage(ObjectRepo.driver);
 			apPage.clickContinue();
 		}
-	}
-
-	@When("^user click on \"([^\"]*)\" in chat screen$")
-	public void user_click_on_chat(String button) throws Throwable {
-
+		else if(button.equalsIgnoreCase("Skip"))
+		{
+			fqPage = new FaqPage(ObjectRepo.driver);
+			fqPage.clickSkipButton();
+		}
 	}
 
 	@Then("^user validates first agent record \"([^\"]*)\"$")

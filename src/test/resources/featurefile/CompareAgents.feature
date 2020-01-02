@@ -13,16 +13,16 @@ Feature: Compare Agents of the web page
 		And user select "Ready to Bid" option
 		And user select "Yes" option
 		
-#		When user enter Full Name "Kalpesh Tank"
-#		When user enter valid email address "auto_kalpesh@dayrep.com"
-#		When user enter USA phone number "(800) 477-1477"
-#		When user select the checkbox "I want agents to ...."  option
-#		And user click on "Continue" button
-#		
-#		And user click on "Yes" in chat screen
-#		And user click on "Skip" button
-#		And user click on "Skip" button
-#		And user click on "Skip" button
+		When user enter Full Name "Kalpesh Tank"
+		When user enter valid email address "auto_kalpesh@dayrep.com"
+		When user enter USA phone number "(800) 477-1477"
+		When user select the checkbox "I want agents to ...."  option
+		And user click on "Continue" button
+		
+		And user click on "Yes" in chat screen
+		And user click on "Skip" button
+		And user click on "Skip" button
+		And user click on "Skip" button
 #
 #		
 #		Then user validates first agent record "Sample Proposal"
